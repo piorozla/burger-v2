@@ -29,7 +29,7 @@ class BurgerBuilder extends Component {
         totalPrice: prevState.totalPrice + INGREDIENT_PRICES[type],
       };
 
-      newState.ingredients[type] = prevState.ingredients[type] + 1;
+      newState.ingredients[type] += 1;
       return newState;
     });
   };
@@ -40,7 +40,7 @@ class BurgerBuilder extends Component {
         ingredients: {
           ...prevState.ingredients,
         },
-        totalPrice: prevState.totalPrice + INGREDIENT_PRICES[type],
+        totalPrice: prevState.totalPrice,
       };
       if (prevState.ingredients[type] > 0) {
         newState.ingredients[type] -= 1;
