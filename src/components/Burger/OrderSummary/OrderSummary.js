@@ -13,10 +13,10 @@ const OrderSummary = props => {
     <Fragment>
       <h3>Your Order</h3>
       <p>The burger will be ordered with the following ingredients</p>
-      <ul>{ingredientSummary}</ul>
+      <ul>{ingredientSummary}</ul>  
       <p>Continue to Checkout?</p>
-      <Button btnType='Success'>CONTINUE</Button>
-      <Button btnType='Danger'>CANCEL</Button>
+      <Button btnType='Success' clicked={props.purchaseContinued}>CONTINUE</Button>
+      <Button btnType='Danger' clicked={props.purchaseCanceled}>CANCEL</Button>
     </Fragment>
   );
 };
