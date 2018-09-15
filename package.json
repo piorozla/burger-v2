@@ -54,6 +54,7 @@
     "start": "serve -s build",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
+    "cov": "node scripts/test.js --env=jsdom --coverage",
     "heroku-postbuild": "npm run build"
   },
   "jest": {
