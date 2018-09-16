@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 
 describe('<Button/>', () => {
   let wrapper;
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = shallow(<Button/>);
   });
   it('should render <button/> element', () => {

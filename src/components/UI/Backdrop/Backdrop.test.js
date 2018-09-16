@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 
 describe('<Backdrop/>', () => {
   let wrapper;
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = shallow(<Backdrop />);
   });
   it('should render <div /> element when props.show', () => {

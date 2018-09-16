@@ -11,7 +11,7 @@ configure({ adapter: new Adapter() });
 
 describe('<SideDrawer/>', () => {
   let wrapper;
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = shallow(<SideDrawer />);
   });
   it('should render <Backdrop /> element', () => {

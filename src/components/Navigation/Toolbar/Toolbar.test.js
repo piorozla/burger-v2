@@ -11,7 +11,7 @@ configure({ adapter: new Adapter() });
 
 describe('<Toolbar/>', () => {
   let wrapper;
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = shallow(<Toolbar />);
   });
   it('should render <header /> element', () => {
