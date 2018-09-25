@@ -12,22 +12,6 @@ describe('<OrderSummary/>', () => {
   beforeAll(() => {
     wrapper = shallow(<OrderSummary ingredients={{ apples: 0 }} price={0} />);
   });
-  // it('should render <BurgerIngredient /> elements', () => {
-  //   wrapper.setProps({ ingredients: { apples: 5 } });
-  //   expect(wrapper.find(BurgerIngredient)).toHaveLength(7);
-  //   expect(
-  //     wrapper
-  //       .find(BurgerIngredient)
-  //       .at(0)
-  //       .props()['type']
-  //   ).toEqual('bread-top');
-  //   expect(
-  //     wrapper
-  //       .find(BurgerIngredient)
-  //       .at(6)
-  //       .props()['type']
-  //   ).toEqual('bread-bottom');
-  // });
   it('should render <h3 /> element', () => {
     expect(wrapper.find('h3')).toHaveLength(1);
     expect(wrapper.find('Fragment').contains(<h3>Your Order</h3>)).toBeTruthy();
