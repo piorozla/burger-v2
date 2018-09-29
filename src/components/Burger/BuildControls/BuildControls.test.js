@@ -4,7 +4,6 @@ import React from 'react';
 
 import BuildControls from './BuildControls';
 import BuildControl from './BuildControl/BuildControl';
-import { doesNotReject } from 'assert';
 
 configure({ adapter: new Adapter() });
 
