@@ -62,8 +62,8 @@
       "src/**/*.{js,jsx,mjs}"
     ],
     "coveragePathIgnorePatterns": [
-      "/src/index.js",
-      "/src/registerServiceWorker.js"
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/registerServiceWorker.js"
     ],
     "coverageReporters": ["json", "lcov", "text"],
     "setupFiles": [
