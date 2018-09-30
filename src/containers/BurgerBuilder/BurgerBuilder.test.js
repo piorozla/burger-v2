@@ -97,7 +97,7 @@ describe('<BurgerBuilder/>', () => {
       });
     });
     describe('addIngredientHandler', () => {
-      it('should check if any ingredients are present', done => {
+      it('should add an ingredient', done => {
         wrapper.setState(state);
         wrapper.instance().addIngredientHandler('salad');
         expect(wrapper.state('ingredients').salad).toEqual(1);
@@ -106,17 +106,20 @@ describe('<BurgerBuilder/>', () => {
         done();
       });
     });
-    describe('addIngredientHandler', () => {
-      it('should check if any ingredients are present', done => {
+    describe('removeIngredientHandler', () => {
+      it('should remove an ingredient', done => {
         wrapper.setState({
           ingredients: {
             salad: 1,
+            apple: 0
           },
         });
         wrapper.instance().removeIngredientHandler('salad');
         expect(wrapper.state('ingredients').salad).toEqual(0);
         expect(wrapper.state('totalPrice')).toEqual(4);
         expect(wrapper.state('purchasable')).toEqual(false);
+        wrapper.instance().removeIngredientHandler('apple');
+        expect(wrapper.state('ingredients').apple).toEqual(0);
         done();
       });
     });
