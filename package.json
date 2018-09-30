@@ -61,6 +61,11 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
     ],
+    "coveragePathIgnorePatterns": [
+      "/src/index.js",
+      "/src/registerServiceWorker.js"
+    ],
+    "coverageReporters": ["json", "lcov", "text"],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
