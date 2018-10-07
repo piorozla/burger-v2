@@ -2,6 +2,7 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 
+import mockAxios from 'axios';
 import BurgerBuilder from './BurgerBuilder';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -111,7 +112,7 @@ describe('<BurgerBuilder/>', () => {
         wrapper.setState({
           ingredients: {
             salad: 1,
-            apple: 0
+            apple: 0,
           },
         });
         wrapper.instance().removeIngredientHandler('salad');
@@ -137,6 +138,27 @@ describe('<BurgerBuilder/>', () => {
         wrapper.instance().purchaseCancelHandler();
         expect(wrapper.state('purchasing')).toEqual(false);
         done();
+      });
+    });
+    describe('purchaseContinueHandler', () => {
+      it('should post orders', async () => {
+        mockAxios.post.mockImplementationOnce(() =>
+          Promise.resolve({
+            data: { results: 'results' },
+          })
+        );
+        await wrapper.instance().purchaseContinueHandler();
+        expect(mockAxios.post).toHaveBeenCalledTimes(1);
+        expect(mockAxios.post).toHaveBeenCalledWith('/orders.json', {
+          customer: {
+            address: { country: 'United Kingdom', postCode: 'YO17FD', street: 'Teststreet 1' },
+            email: 'example@test.com',
+            name: 'Piotr Rozlal',
+          },
+          deliveryMethod: 'Deliveroo',
+          ingredients: wrapper.state('ingredients'),
+          price: wrapper.state('totalPrice'),
+        });
       });
     });
   });
