@@ -8,7 +8,7 @@ import { createStore, compose } from 'redux';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import reducer from './store/reducers/reducer';
+import reducer from './store/reducers/burgerBuilder';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
