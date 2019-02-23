@@ -16,7 +16,6 @@ describe('<Button/>', () => {
   });
   it('should render <button/> element with props', () => {
     wrapper.setProps({ clicked: 'clicked', children: ['child1', 'child2'] });
-    console.log(wrapper.find('button').children())
     expect(wrapper.find('button')).toHaveLength(1);
     expect(wrapper.find('button').props()['className']).toEqual(' ');
     expect(wrapper.find('button').props()['onClick']).toEqual('clicked');
