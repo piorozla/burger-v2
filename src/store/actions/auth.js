@@ -1,5 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+import config from '../../assets/secrets/config';
+const googleAPI = process.env.google_api || config.googleAPI;
 
 export const authStart = () => {
   return {
@@ -48,10 +50,10 @@ export const auth = (email, password, isSignup) => {
       returnSecureToken: true,
     };
     let url =
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAWpbz-sTNHBiHutnH8BZeLP9Tb0nxcmis';
+      `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${googleAPI}`;
     if (!isSignup) {
       url =
-        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAWpbz-sTNHBiHutnH8BZeLP9Tb0nxcmis';
+        `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${googleAPI}`;
     }
     axios
       .post(url, authData)
